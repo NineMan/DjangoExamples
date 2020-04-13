@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+        <link href="{% static "css/blog.css" %}" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+
+    <div>
+        <div class="main">
+            <div id="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <div class="sidenav">
+            <div id="sidebar">
+<!--                <a href="">
+                    <h2>MY BLOG (sidebar, base)</h2>
+                </a> -->
+                <h2>MY BLOG (sidebar, base)</h2>
+                <p>This is my blog. (sidebar, base)</p>
+            </div>
+        </div>
+    </body>
+
+</html>
