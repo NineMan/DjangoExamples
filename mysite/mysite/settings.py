@@ -123,3 +123,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# Настройки для отправки почты
+
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST_USER = os.environ['MAIL_EMAIL']
+EMAIL_HOST_PASSWORD = os.environ['MAIL_PASSWORD']
+DEFAULT_TO_EMAIL = os.environ['DEFAULT_TO_EMAIL']
