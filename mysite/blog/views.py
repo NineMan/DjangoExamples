@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger    # Для общего представления
 from django.views.generic import ListView                                   # Для представления на основе класса
 from django.core.mail import send_mail
+from django.conf import settings
 from .forms import EmailPostForm
 from .models import Post
 
@@ -58,15 +59,21 @@ def post_share(request, post_id):
         if form.is_valid():
             # если поля Form прошли проверку (valid), то используем "чистые" данные (cleaned_data)
             cd = form.cleaned_data
-            # ... send mail
+            # send mail
             post_url = request.build_absolute_uri(post.get_absolute_url())
             subject = '{} ({}) recommended you reading "{}"'.format(cd['name'], cd['email'], post.title)
             message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, cd['name'], cd['comments'])
-            send_mail(subject, message, admin@myblog.com, cd['to'])
+            # send_mail(subject, message, admin@myblog.com, cd['to'])
+            send_mail(subject,
+                      message,
+                      settings.EMAIL_HOST_USER,
+                      [cd['to']],
+                      fail_silently=False)
             sent = True
     else:
         form = EmailPostForm()
     return render(request, 'blog/post/share.html', {'post': post,
                                                     'form': form,
                                                     'sent': sent})
+
 
