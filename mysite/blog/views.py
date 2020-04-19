@@ -17,7 +17,7 @@ class PostListView(ListView):
 
 
 # def post_list(request):
-    # Предсталение (views) общее
+#     # Представление (views) общее
 #     # posts = Post.objects.all()
 #     # posts = Post.objects.filter(status='published')
 #     object_list = Post.objects.filter(status='published')
