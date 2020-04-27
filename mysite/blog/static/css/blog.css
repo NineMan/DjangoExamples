@@ -59,4 +59,20 @@ hr {
   background: navy; /* Синий цвет фона */
   color: white; /* Белые буквы */
   font-size: 9pt; /* Размер шрифта в пунктах */
+
+  background: #4099ff; /* Синий цвет фона */
+  color: white; /* Белые буквы */
+  font-size: 9pt; /* Размер шрифта в пунктах */
+  border: #4099ff;
+  font: bold, italic;
+  width: 110px;
+  height: 30px;
+
+
+}
+
+p {
+    margin-top: 0.5px;
+    margin-bottom: 0.1px;
+    line-height: 100%;
 }
