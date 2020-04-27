@@ -30,7 +30,7 @@
         {{ post.body|truncatewords:30|linebreaks }}
     {% endfor %}
 
-<!--    {% include "pagination.html" with page=posts %} -->
-    {% include "pagination.html" with page=page_obj %}
+<!--    {% include "pagination.html" with page=page_obj %} -->  <!-- Вариант на Class-based views -->
+    {% include "pagination.html" with page=posts %}      <!-- Вариант на "общих" представлениях (views) -->
 
 {% endblock %}
